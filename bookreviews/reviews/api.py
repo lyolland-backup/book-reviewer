@@ -7,6 +7,6 @@ from .serializers import ReviewSerializer
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     permission_classes = [
-        permission.AllowAny
+        permissions.AllowAny
     ]
     serializer_class = ReviewSerializer
