@@ -1,9 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactDom from "react-dom";
+import Header from "./layout/Header";
+import ReviewDashboard from "./reviews/reviewDashboard";
 
 class App extends Component {
   render() {
-    return <h1>React App</h1>;
+    return (
+      <Fragment>
+        <Header />
+        <div className="container">
+          <ReviewDashboard />
+        </div>
+      </Fragment>
+    );
   }
 }
 
