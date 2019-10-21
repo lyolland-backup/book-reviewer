@@ -5,7 +5,9 @@ import { getReviews, deleteReviews } from "../../actions/reviews";
 
 export class ReviewsList extends Component {
   static propTypes = {
-    reviews: PropTypes.array.isRequired
+    reviews: PropTypes.array.isRequired,
+    getReviews: PropTypes.func.isRequired,
+    deleteReviews: PropTypes.func.isRequired
   };
 
   componentDidMount() {
