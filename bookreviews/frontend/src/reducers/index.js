@@ -1,3 +1,5 @@
 import { combineReducers } from "redux";
 import reviews from './reviews'
-export default combineReducers({});
+export default combineReducers({
+    reviews
+});
