@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import PropTypes from "prop-types";
+import { addReview } from "../../actions/reviews";
 
 class AddReview extends Component {
   state = {
@@ -7,10 +11,22 @@ class AddReview extends Component {
     review: ""
   };
 
+  static propTypes = {
+    addReview: PropTypes.func.isRequired
+  };
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("form submitted", this.state);
+    const { author, title, review } = this.state;
+    const reviewData = { author, title, review };
+    this.props.addReview(reviewData);
   };
 
   render() {
@@ -51,10 +67,18 @@ class AddReview extends Component {
               onChange={this.handleChange}
             ></textarea>
           </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary btn-block">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     );
   }
 }
 
-export default AddReview;
+export default connect(
+  null,
+  { addReview }
+)(AddReview);

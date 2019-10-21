@@ -1,4 +1,4 @@
-import { GET_REVIEWS, DELETE_REVIEWS } from "../actions/types.js";
+import { GET_REVIEWS, DELETE_REVIEWS, ADD_REVIEW } from "../actions/types.js";
 
 const initialState = {
   reviews: []
@@ -16,6 +16,11 @@ export default function(state = initialState, action) {
         ...state,
         reviews: state.reviews.filter(review => review.id != action.payload) // id is being sent as action.payload
       };
+      case ADD_REVIEW:
+        return {
+          ...state,
+          reviews: [...state.reviews, action.payload]
+        }
     default:
       return state;
   }
