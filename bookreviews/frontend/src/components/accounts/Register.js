@@ -28,11 +28,10 @@ export class Register extends Component {
           <h2 className="text-center">Sign Up</h2>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label>Email address</label>
+              <label>email</label>
               <input
                 type="email"
                 className="form-control"
-                aria-describedby="emailHelp"
                 name="email"
                 value={email}
                 onChange={this.handleChange}
@@ -52,7 +51,7 @@ export class Register extends Component {
               />
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label>password</label>
               <input
                 type="password"
                 name="passwordOne"
@@ -62,7 +61,7 @@ export class Register extends Component {
               />
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label>confirm password</label>
               <input
                 type="password"
                 name="passwordTwo"
@@ -72,7 +71,7 @@ export class Register extends Component {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Submit
+              submit
             </button>
           </form>
           <small>

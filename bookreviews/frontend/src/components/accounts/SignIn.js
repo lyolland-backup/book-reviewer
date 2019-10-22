@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 export class SignIn extends Component {
   state = {
     username: "",
-    email: "",
-    passwordOne: "",
-    passwordTwo: ""
+    password: ""
   };
 
   handleChange = e => {
@@ -21,26 +19,12 @@ export class SignIn extends Component {
   };
 
   render() {
-    const { username, email, passwordOne, passwordTwo } = this.state;
+    const { username, password } = this.state;
     return (
       <div className="col-md-6 m-auto">
         <div className="card card-body mt-5">
           <h2 className="text-center">Sign In</h2>
           <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                aria-describedby="emailHelp"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-              />
-              <small id="emailHelp" className="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small>
-            </div>
             <div className="form-group">
               <label>username</label>
               <input
@@ -52,27 +36,17 @@ export class SignIn extends Component {
               />
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label>password</label>
               <input
                 type="password"
-                name="passwordOne"
+                name="password"
                 className="form-control"
-                value={passwordOne}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input
-                type="password"
-                name="passwordTwo"
-                className="form-control"
-                value={passwordTwo}
+                value={password}
                 onChange={this.handleChange}
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Submit
+              submit
             </button>
           </form>
           <small>
