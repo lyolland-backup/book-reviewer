@@ -15,4 +15,5 @@ class ReviewViewSet(viewsets.ModelViewSet):
     def get_query_set(self):
         return self.request.user.reviews.all()
 
-
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
