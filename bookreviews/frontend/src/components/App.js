@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
-import ReactDom from "react-dom";
+import ReactDOM from "react-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+
 import Header from "./layout/Header";
 import ReviewDashboard from "./reviews/reviewDashboard";
 
@@ -20,17 +22,19 @@ class App extends Component {
     return (
       <Provider store={store}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
-          <Fragment>
-            <Header />
-            <Alerts />
-            <div className="container">
-              <ReviewDashboard />
-            </div>
-          </Fragment>
+          <Router>
+            <Fragment>
+              <Header />
+              <Alerts />
+              <div className="container">
+                <ReviewDashboard />
+              </div>
+            </Fragment>
+          </Router>
         </AlertProvider>
       </Provider>
     );
   }
 }
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));
