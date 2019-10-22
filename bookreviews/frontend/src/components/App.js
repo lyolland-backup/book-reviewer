@@ -11,6 +11,8 @@ import store from "../store";
 import { Provider as AlertProvider } from "react-alert";
 import Alerts from "./layout/alerts";
 import AlertTemplate from "react-alert-template-basic";
+import Register from "./accounts/Register";
+import SignIn from "./accounts/SignIn";
 
 const alertOptions = {
   timeout: 3000,
@@ -27,7 +29,11 @@ class App extends Component {
               <Header />
               <Alerts />
               <div className="container">
-                <ReviewDashboard />
+                <Switch>
+                  <Route exact path="/" render={() => <ReviewDashboard />} />
+                  <Route exact path="/register" render={() => <Register />} />
+                  <Route exact path="/signin" render={() => <SignIn />} />
+                </Switch>
               </div>
             </Fragment>
           </Router>
