@@ -23,10 +23,14 @@ class AddReview extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log("form submitted", this.state);
     const { author, title, review } = this.state;
     const reviewData = { author, title, review };
     this.props.addReview(reviewData);
+    this.setState({
+      author: "",
+      title: "",
+      review: ""
+    });
   };
 
   render() {
@@ -78,7 +82,4 @@ class AddReview extends Component {
   }
 }
 
-export default connect(
-  null,
-  { addReview }
-)(AddReview);
+export default connect(null, { addReview })(AddReview);
