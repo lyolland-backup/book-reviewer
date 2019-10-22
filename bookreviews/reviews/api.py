@@ -3,11 +3,9 @@ from rest_framework import viewsets, permissions
 from .serializers import ReviewSerializer
 
 # viewset for reviews for crud
-
-
 class ReviewViewSet(viewsets.ModelViewSet):
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
     serializer_class = ReviewSerializer

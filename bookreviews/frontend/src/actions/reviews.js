@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { GET_REVIEWS, DELETE_REVIEWS, ADD_REVIEW, GET_ERRORS } from "./types";
-import { createMessage } from "./messages";
+import { createMessage, returnErrors } from "./messages";
 
 // GET REVIEWS
 export const getReviews = () => dispatch => {
@@ -13,7 +13,9 @@ export const getReviews = () => dispatch => {
         payload: response.data
       });
     })
-    .catch(console.log);
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
 
 // ADD REVIEW
@@ -27,16 +29,9 @@ export const addReview = review => dispatch => {
         payload: response.data
       });
     })
-    .catch(err => {
-      const errors = {
-        msg: err.response.data,
-        status: err.response.status
-      };
-      dispatch({
-        type: GET_ERRORS,
-        payload: errors
-      });
-    });
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
 
 // DELETE REVIEWS
