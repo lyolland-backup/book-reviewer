@@ -16,37 +16,40 @@ export class ReviewsList extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Book Reviews</h2>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Author</th>
-              <th>Title</th>
-              <th>Review</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.reviews.map(review => (
-              <tr key={review.id}>
-                <td>{review.id}</td>
-                <td>{review.author}</td>
-                <td>{review.title}</td>
-                <td>{review.review}</td>
-                <td>{review.created_at}</td>
-                <td>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={this.props.deleteReviews.bind(this, review.id)}
-                  >
-                    Delete Review
-                  </button>
-                </td>
+        <h3>Your Reviews</h3>
+
+        <div className="table-responsive-sm">
+          <table className="table table-dark table-hover ">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Review</th>
+                <th>Date</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {this.props.reviews.map(review => (
+                <tr key={review.id}>
+                  <td>{review.id}</td>
+                  <td>{review.author}</td>
+                  <td>{review.title}</td>
+                  <td>{review.review}</td>
+                  <td>{review.created_at}</td>
+                  <td>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={this.props.deleteReviews.bind(this, review.id)}
+                    >
+                      Delete Review
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Fragment>
     );
   }
