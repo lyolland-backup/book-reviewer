@@ -11,6 +11,8 @@ import store from "../store";
 import { Provider as AlertProvider } from "react-alert";
 import Alerts from "./layout/alerts";
 import AlertTemplate from "react-alert-template-basic";
+
+
 import Register from "./accounts/Register";
 import SignIn from "./accounts/SignIn";
 
