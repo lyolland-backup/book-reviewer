@@ -8,13 +8,14 @@ import ReviewDashboard from "./reviews/reviewDashboard";
 import { Provider } from "react-redux";
 import store from "../store";
 
+
 import { Provider as AlertProvider } from "react-alert";
 import Alerts from "./layout/alerts";
 import AlertTemplate from "react-alert-template-basic";
 
-
 import Register from "./accounts/Register";
 import SignIn from "./accounts/SignIn";
+import PrivateRoute from "./common/PrivateRoute";
 
 const alertOptions = {
   timeout: 3000,
@@ -32,9 +33,10 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Switch>
-                  <Route exact path="/" render={() => <ReviewDashboard />} />
-                  <Route exact path="/register" render={() => <Register />} />
-                  <Route exact path="/signin" render={() => <SignIn />} />
+                  <PrivateRoute exact path="/" component={ReviewDashboard} />}
+                  />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/signin" component={SignIn} />
                 </Switch>
               </div>
             </Fragment>
